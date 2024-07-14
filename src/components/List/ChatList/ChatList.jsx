@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./chatList.css";
-import search from '../../../images/search.png';
-import plus from '../../../images/plus.png';
-import minus from '../../../images/minus.png';
-import avatar from '../../../images/avatar.png';
+import AddUser from "./AddUser";
+import search from "../../../images/search.png";
+import plus from "../../../images/plus.png";
+import minus from "../../../images/minus.png";
+import avatar from "../../../images/avatar.png";
 
 const ChatList = () => {
   const [addMode, setAddMode] = useState(false);
@@ -15,38 +16,44 @@ const ChatList = () => {
           <img src={search} alt="Search" />
           <input type="text" placeholder="Search" />
         </div>
-        <img src={addMode ? minus : plus} alt="Plus" className="add" onClick={() => setAddMode((prev) => !prev)} />
+        <img
+          src={addMode ? minus : plus}
+          alt="Plus"
+          className="add"
+          onClick={() => setAddMode((prev) => !prev)}
+        />
       </div>
-      <div className='item'>
+      <div className="item">
         <img src={avatar} alt="Avatar" />
         <div className="texts">
           <span>Your Self</span>
           <p>Hello</p>
         </div>
       </div>
-      <div className='item'>
+      <div className="item">
         <img src={avatar} alt="Avatar" />
         <div className="texts">
           <span>Your Self</span>
           <p>Hello</p>
         </div>
       </div>
-      <div className='item'>
+      <div className="item">
         <img src={avatar} alt="Avatar" />
         <div className="texts">
           <span>Your Self</span>
           <p>Hello</p>
         </div>
       </div>
-      <div className='item'>
+      <div className="item">
         <img src={avatar} alt="Avatar" />
         <div className="texts">
           <span>Your Self</span>
           <p>Hello</p>
         </div>
       </div>
+      {addMode && <AddUser />}
     </div>
   );
 };
 
-export default ChatList
+export default ChatList;
