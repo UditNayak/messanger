@@ -3,10 +3,11 @@ import List from './components/List';
 import Chat from './components/Chat';
 import Detail from './components/Detail';
 import Login from './components/Login';
+import Notification from './components/Notification';
 
 function App() {
 
-  const user = false;
+  const user = true;
   return (
     <div className="container">
       {user ? (
@@ -18,6 +19,7 @@ function App() {
       ) : (
         <Login />
       )}
+      <Notification />
     </div>
   );
 }
