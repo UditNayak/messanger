@@ -2,8 +2,12 @@ import "./chat.css";
 import { useRef, useEffect } from "react";
 import avatar from "../../images/avatar.png";
 import info from "../../images/info.png";
+import { useState } from "react";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../lib/firebase";
 
 const Chat = () => {
+  const [chat, setChat] = useState();
 
   const endRef = useRef(null);
 
@@ -11,6 +15,18 @@ const Chat = () => {
     endRef.current.scrollIntoView({ behavior: "smooth" });
   }
   , []);
+
+  useEffect(() => {
+    const unSub = onSnapshot(doc(db, "chats", "ZUeAPdEK6AeXOHitozIl"), (res) => {
+      setChat(res.data());
+    });
+
+    return () => {
+      unSub();
+    };
+  }, []);
+
+  console.log(chat);
 
 
 
