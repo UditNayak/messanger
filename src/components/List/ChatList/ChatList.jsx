@@ -7,7 +7,7 @@ import AddUser from "./AddUser";
 import search from "../../../images/search.png";
 import plus from "../../../images/plus.png";
 import minus from "../../../images/minus.png";
-import avatar from "../../../images/avatar.png";
+import defaultAvatar from "../../../images/defaultAvatar.jpg";
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
@@ -54,7 +54,7 @@ const ChatList = () => {
       </div>
       {chats.map((chat) => (
         <div className="item" key={chat.receiverId}>
-          <img src={chat.user.avatar || avatar} alt="Avatar" />
+          <img src={chat.user.avatar || defaultAvatar} alt="Avatar" />
           <div className="texts">
             <span>{chat.user.username}</span>
             <p>{chat.lastMessage}</p>
